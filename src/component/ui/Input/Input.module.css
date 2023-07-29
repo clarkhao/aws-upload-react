@@ -1,0 +1,174 @@
+.inputWrapper {
+  width: 100%;
+  height: 64px;
+  box-sizing: border-box;
+  max-width: 600px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.container {
+  position: relative;
+}
+.input {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.2rem;
+  border: 0;
+  outline: 0;
+  padding-left: 10px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  box-shadow: none;
+  padding-top: 10px;
+}
+.outlined {
+  width: 100%;
+  height: 3rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+.input:is([type="Search"]),
+.outlined:is([type="Search"]) {
+  padding-right: 10px;
+}
+.indent {
+  padding-left: 2.6rem;
+}
+.input.light {
+  border-color: #eee;
+  background-color: #eee;
+}
+.light {
+  color: black;
+}
+.input.dark {
+  border-color: #616161;
+  background-color: #616161;
+}
+.dark {
+  color: white;
+}
+.container .licon {
+  position: absolute;
+  left: 0.65rem;
+  top: 0;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container .ricon {
+  visibility: hidden;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.3s ease-in;
+}
+.ricon > svg,
+.licon > svg {
+  width: 1.3rem;
+  height: auto;
+}
+.placeholder {
+  position: absolute;
+  top: 0.9rem;
+  left: 2.6rem;
+  transition: 0.3s ease-in-out;
+}
+.nicon.placeholder {
+  left: 10px;
+}
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  top: 0;
+  font-size: 8px;
+}
+.outlined:focus ~ .placeholder,
+.outlined:not(:placeholder-shown) ~ .placeholder {
+  font-size: 8px;
+  top: -8px;
+  left: 8px;
+  background-color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.input:not(:placeholder-shown) ~ .ricon,
+.outlined:not(:placeholder-shown) ~ .ricon {
+  visibility: visible;
+  transition: 0.3s ease-in;
+}
+/* Change bg-color in autofill input */
+.input:-webkit-autofill.light,
+.input:-webkit-autofill:hover.light,
+.input:-webkit-autofill:focus.light,
+.input:-webkit-autofill:active.light {
+  -webkit-box-shadow: 0 0 0 30px #eee inset !important;
+}
+.outlined:-webkit-autofill.light,
+.outlined:-webkit-autofill:hover.light,
+.outlined:-webkit-autofill:focus.light,
+.outlined:-webkit-autofill:active.light {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.input:-webkit-autofill.dark,
+.input:-webkit-autofill:hover.dark,
+.input:-webkit-autofill:focus.dark,
+.input:-webkit-autofill:active.dark,
+.outlined:-webkit-autofill.dark,
+.outlined:-webkit-autofill:hover.dark,
+.outlined:-webkit-autofill:focus.dark,
+.outlined:-webkit-autofill:active.dark {
+  -webkit-box-shadow: 0 0 0 30px #616161 inset !important;
+}
+/*Change text in autofill textbox*/
+.input:-webkit-autofill.light,
+.outlined:-webkit-autofill.light {
+  -webkit-text-fill-color: black !important;
+}
+.input:-webkit-autofill.dark,
+.outlined:-webkit-autofill.dark {
+  -webkit-text-fill-color: white !important;
+}
+.input:-webkit-autofill.error,
+.outlined:-webkit-autofill.error {
+  -webkit-text-fill-color: #d32f2f !important;
+}
+.input + .label::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  border-top: 3px solid #08fdd8;
+  transition: all 0.5s ease-in-out;
+  z-index: 9;
+}
+.error,
+.error svg,
+.error + .label::before {
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+.input:focus + .label::before,
+.input:not(:placeholder-shown) + .label::before,
+.error + .label::before {
+  width: 100%;
+}
+.errMsg {
+  font-size: 5px;
+}
