@@ -7,7 +7,7 @@ interface IUploader {}
 
 function Uploader({...props}: IUploader) {
   return <>
-  
+    <input type="file" className={style.input} />
   </>
 }
 
